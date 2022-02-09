@@ -6,21 +6,16 @@
 //
 
 import UIKit
-import Firebase
-import FirebaseAuth
+
 
 class ViewController: UIViewController, UITableViewDelegate {
 
-    @IBOutlet weak var TableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        TableView.delegate = self
-        TableView.dataSource = self
-        TableView.register(UINib(nibName: "OneTableViewCell", bundle: nil), forCellReuseIdentifier: "OneTableViewCell")
-        TableView.register(UINib(nibName: "TwoTableViewCell", bundle: nil), forCellReuseIdentifier: "TwoTableViewCell")
-        TableView.register(UINib(nibName: "ThreeTableViewCell", bundle: nil), forCellReuseIdentifier: "ThreeTableViewCell")
-        TableView.register(UINib(nibName: "FourTableViewCell", bundle: nil), forCellReuseIdentifier: "FourTableViewCell")
-        
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(TextFieldTableViewCell.self, forCellReuseIdentifier: "TextFieldTableViewCell")
         
     }
 }
@@ -30,41 +25,44 @@ extension ViewController: UITableViewDataSource{
         return 4
     }
     
+    enum numberCell: Int{
+        case login = 0 , email = 1, password = 2, btn = 3
+          
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-      if indexPath.row == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "OneTableViewCell") as! OneTableViewCell
+        
+        switch indexPath.row {
+        case 0:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "TextFieldTableViewCell") as! TextFieldTableViewCell
+            cell.textField.placeholder = "login"
+            cell.textField.isHidden = true
+            cell.btnLable.isHidden = true
+            cell.textlabel.text = "Добро пожаловать"
             return cell
-    }else if (indexPath.row == 1){
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TwoTableViewCell") as! TwoTableViewCell
-        return cell
-    }else if (indexPath.row == 2){
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ThreeTableViewCell") as! ThreeTableViewCell
-        return cell
-    } else {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FourTableViewCell") as! FourTableViewCell
-        return cell
-    }
-    }
-}
-
-func signInWithEmail(email:String, password: String, completion:@escaping (Bool,String) ->Void) {
-    Auth.auth().signIn(withEmail: email, password: password) {(res, err) in
-        if err != nil{
-            completion(false,(err?.localizedDescription)!)
-            return
+        case 1:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "TextFieldTableViewCell") as! TextFieldTableViewCell
+            cell.textField.placeholder = "Логин"
+            cell.textlabel.isHidden = true
+            cell.btnLable.isHidden = true
+            return cell
+            
+        case 2:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "TextFieldTableViewCell") as! TextFieldTableViewCell
+            cell.textField.placeholder = "Пароль"
+            cell.textlabel.isHidden = true
+            cell.btnLable.isHidden = true
+            return cell
+        default:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "TextFieldTableViewCell") as! TextFieldTableViewCell
+            cell.textField.isHidden = true
+            cell.textlabel.isHidden = true
+            return cell
         }
-        completion(true,(res?.user.email)!)
     }
 }
+        /*let cell = tableView.dequeueReusableCell(withIdentifier: "TextFieldTableViewCell") as! TextFieldTableViewCell
+        return cell
+         }*/
+    
 
-
-func signUpWithEmail(email: String, passwor: String, completion: @escaping (Bool, String)->Void){
-    Auth.auth().createUser(withEmail: email, password: password) {
-        (res,err) in
-        if err != nil{
-            completion(false,(err?.localizedDescription)!)
-            return
-        }
-        completion(true,(res?.user.email)!)
-    }
-}
