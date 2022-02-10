@@ -18,13 +18,13 @@ final class TextFieldTableViewCell: UITableViewCell {
     }()
     
      var textField: UITextField = {
-        let textlogin = UITextField()
-        textlogin.font = UIFont.systemFont(ofSize: 22)
-        textlogin.textColor = .black
-        textlogin.textAlignment = .center
-        
-         
-         return textlogin;
+        let textFields = UITextField()
+        textFields.font = UIFont.systemFont(ofSize: 22)
+        textFields.textColor = .black
+        textFields.textAlignment = .center
+        var textPeople = textFields.text
+         UserDefaults.standard.set(textPeople, forKey: "text")
+         return textFields;
     }()
     var textlabel: UILabel = {
        let labelText = UILabel()

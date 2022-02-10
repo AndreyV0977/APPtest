@@ -10,6 +10,8 @@
 		4204C26D27B2753D003591A4 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4204C26C27B2753D003591A4 /* Data.swift */; };
 		42089D6127B19C6D000CB934 /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42089D6027B19C6D000CB934 /* TextFieldTableViewCell.swift */; };
 		425C55E7279DD0AD00475682 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 425C55E6279DD0AD00475682 /* GoogleService-Info.plist */; };
+		4263C84427B51026006E4295 /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4263C84227B51026006E4295 /* MainScreenViewController.swift */; };
+		4263C84527B51026006E4295 /* MainScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4263C84327B51026006E4295 /* MainScreenViewController.xib */; };
 		42896A4827A5DFD600F660A7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42896A4627A5DFD600F660A7 /* ViewController.swift */; };
 		42896A4927A5DFD600F660A7 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42896A4727A5DFD600F660A7 /* ViewController.xib */; };
 		42930D29279C44FB001F7911 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42930D28279C44FB001F7911 /* AppDelegate.swift */; };
@@ -47,6 +49,8 @@
 		4204C26C27B2753D003591A4 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		42089D6027B19C6D000CB934 /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
 		425C55E6279DD0AD00475682 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4263C84227B51026006E4295 /* MainScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
+		4263C84327B51026006E4295 /* MainScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainScreenViewController.xib; sourceTree = "<group>"; };
 		42896A4627A5DFD600F660A7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		42896A4727A5DFD600F660A7 /* ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		42930D25279C44FB001F7911 /* APPtest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = APPtest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -142,6 +146,8 @@
 				42896A4727A5DFD600F660A7 /* ViewController.xib */,
 				42089D6027B19C6D000CB934 /* TextFieldTableViewCell.swift */,
 				4204C26C27B2753D003591A4 /* Data.swift */,
+				4263C84227B51026006E4295 /* MainScreenViewController.swift */,
+				4263C84327B51026006E4295 /* MainScreenViewController.xib */,
 			);
 			path = APPtest;
 			sourceTree = "<group>";
@@ -286,6 +292,7 @@
 				42930D35279C44FD001F7911 /* LaunchScreen.storyboard in Resources */,
 				42930D32279C44FD001F7911 /* Assets.xcassets in Resources */,
 				425C55E7279DD0AD00475682 /* GoogleService-Info.plist in Resources */,
+				4263C84527B51026006E4295 /* MainScreenViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,6 +420,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4263C84427B51026006E4295 /* MainScreenViewController.swift in Sources */,
 				42896A4827A5DFD600F660A7 /* ViewController.swift in Sources */,
 				4204C26D27B2753D003591A4 /* Data.swift in Sources */,
 				42930D29279C44FB001F7911 /* AppDelegate.swift in Sources */,
