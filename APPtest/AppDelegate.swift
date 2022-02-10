@@ -17,7 +17,15 @@ var window: UIWindow?
        
         
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = ViewController()
+        let authSession = UserDefaults.standard.string(forKey: "authSession")
+        if (authSession != nil) == true {
+            window?.rootViewController = MainScreenViewController()
+        }else if (authSession != nil) == false {
+            window?.rootViewController = ViewController()
+        } else {
+            window?.rootViewController = MainScreenViewController()
+        }
+        
         window?.makeKeyAndVisible()
         return true
     }

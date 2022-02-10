@@ -9,25 +9,21 @@ import Foundation
 
 
 class data{
-func peoplelogin(){
-    
-let name = "andrey"
-let pas = "password"
-UserDefaults.standard.set(name, forKey: "login")
-UserDefaults.standard.set(pas, forKey: "password")
-
-    
+func peopleloginData(){
     var arrayPeople: [String] = []
-    arrayPeople.append(UserDefaults.standard.string(forKey: "login") ?? "Unknown")
-    arrayPeople.append(UserDefaults.standard.string(forKey: "password") ?? "Unknown")
-    
-    var name1 = "Andrey"
+    arrayPeople.append(UserDefaults.standard.string(forKey: "text") ?? "Unknown")
+    let textPeople = UserDefaults.standard.string(forKey: "text")
+  
    var auth = true
-    for (index, value) in arrayPeople.enumerated(){
-        if value == name1{
+    for item in arrayPeople {
+        if item == textPeople {
            auth = true
+            UserDefaults.standard.set(auth, forKey: "authSession")
+            
         }else{
-            auth = false
+            auth = true
+            UserDefaults.standard.set(auth, forKey: "authSession")
+            
         }
         
     }
