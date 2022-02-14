@@ -7,42 +7,77 @@
 
 import UIKit
 
-final class TextFieldTableViewCell: UITableViewCell {
-
-   
+/*enum numberCell: Int{
+    case text
+    case email
+    case password
+    case button
     
-     var colorView: UIView = {
+    
+}*/
+
+final class TextFieldTableViewCell: UITableViewCell {
+    
+    var colorView: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 8
         return view
     }()
     
-     var textField: UITextField = {
-        let textlogin = UITextField()
-        textlogin.font = UIFont.systemFont(ofSize: 22)
-        textlogin.textColor = .black
-        textlogin.textAlignment = .center
+    private var textField: UITextField = {
+            let textFields = UITextField()
+            textFields.font = UIFont.systemFont(ofSize: 22)
+            textFields.textColor = .black
+            textFields.textAlignment = .center
+            var textPeople = textFields.text
+             UserDefaults.standard.set(textPeople, forKey: "text")
         
-         
-         return textlogin;
-    }()
-    var textlabel: UILabel = {
-       let labelText = UILabel()
-    labelText.font = UIFont.systemFont(ofSize: 22)
-    labelText.textColor = .black
-    labelText.textAlignment = .center
-        labelText.text = "Welcome"
-       
-       return labelText
-   }()
-   var btnLable: UIButton = {
-       let btn = UIButton()
-       btn.setTitleColor(UIColor.black, for: .normal)
-       btn.backgroundColor = UIColor.green
-       btn.setTitle("Войти", for: .normal)
-       
-       return btn
-   }()
+             return textFields;
+            
+        }()
+       private var textlabel: UILabel = {
+           let labelText = UILabel()
+        labelText.font = UIFont.systemFont(ofSize: 22)
+        labelText.textColor = .black
+        labelText.textAlignment = .center
+           
+           return labelText
+       }()
+       private var buttonLable: UIButton = {
+           let button = UIButton()
+           button.setTitleColor(UIColor.black, for: .normal)
+           button.backgroundColor = UIColor.green
+          return button
+       }()
+ func configure(with data: numberCell){
+     
+     
+     if ((numberCell(rawValue: 0)) != nil) {
+              
+         let labelText = UILabel()
+         labelText.text = "Добро пожаловать"
+          
+        }else if (numberCell(rawValue: 1) != nil){
+            let textFields = UITextField()
+            
+            textFields.placeholder = "Логин"
+        } else if (numberCell(rawValue: 2) != nil){
+            let textFields = UITextField()
+            
+            textFields.placeholder = "Пароль"
+            
+        }  else if (numberCell(rawValue: 3) != nil){
+            let button = UIButton()
+            button.setTitle("Войти", for: .normal)
+            
+        }
+     
+ }
+    
+    
+    
+    
+    
     
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -57,47 +92,25 @@ final class TextFieldTableViewCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
     }
-    
-    func configurre(with title: String) {
-    textField.text = title
-    textlabel.text = title
+    override func awakeFromNib() {
+        super.awakeFromNib()
     }
 
     func setupUI() {
         selectionStyle = .none
         colorView.translatesAutoresizingMaskIntoConstraints = false
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        textlabel.translatesAutoresizingMaskIntoConstraints = false
-        btnLable.translatesAutoresizingMaskIntoConstraints = false
-
         contentView.addSubview(colorView)
-        colorView.addSubview(textField)
-        colorView.addSubview(textlabel)
-        colorView.addSubview(btnLable)
         NSLayoutConstraint.activate([
             colorView.heightAnchor.constraint(equalToConstant: 72),
             colorView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 4),
             colorView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -4),
             colorView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
-            colorView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
-            
-            textField.heightAnchor.constraint(equalToConstant: 56),
-            textField.topAnchor.constraint(equalTo: colorView.topAnchor, constant: 8),
-            textField.bottomAnchor.constraint(equalTo: colorView.bottomAnchor, constant: -8),
-            textField.leadingAnchor.constraint(equalTo: colorView.leadingAnchor, constant: 8),
-            textField.trailingAnchor.constraint(equalTo: colorView.trailingAnchor, constant: -8),
-            
-            textlabel.heightAnchor.constraint(equalToConstant: 66),
-            textlabel.topAnchor.constraint(equalTo: colorView.topAnchor, constant: 8),
-            textlabel.bottomAnchor.constraint(equalTo: colorView.bottomAnchor, constant: -8),
-            textlabel.leadingAnchor.constraint(equalTo: colorView.leadingAnchor, constant: 8),
-            textlabel.trailingAnchor.constraint(equalTo: colorView.trailingAnchor, constant: -8),
-            
-            btnLable.heightAnchor.constraint(equalToConstant: 66),
-            btnLable.topAnchor.constraint(equalTo: colorView.topAnchor, constant: 8),
-            btnLable.bottomAnchor.constraint(equalTo: colorView.bottomAnchor, constant: -8),
-            btnLable.leadingAnchor.constraint(equalTo: colorView.leadingAnchor, constant: 8),
-            btnLable.trailingAnchor.constraint(equalTo: colorView.trailingAnchor, constant: -8)
+            colorView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8)
         ])
     }
+    
+
+    
+  
 }
+
